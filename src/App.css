@@ -1,0 +1,179 @@
+/* Base Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 850px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.room-input-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.room-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.room-input label {
+  font-weight: 600;
+  color: #4b5563;
+}
+
+input, select {
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 5px rgba(79, 70, 229, 0.2);
+}
+
+.logo {
+  max-width: 120px;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.order-section, .signature-section {
+  background-color: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.meal-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.meal-counter:hover {
+  border-color: #4f46e5;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.1);
+}
+
+.counter-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.counter-btn {
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: #4f46e5;
+  transition: all 0.3s ease;
+}
+
+.counter-btn:hover {
+  background-color: #6366f1;
+  color: #ffffff;
+}
+
+.counter-display {
+  font-size: 18px;
+  font-weight: 600;
+  min-width: 40px;
+  text-align: center;
+}
+
+#signature-pad {
+  width: 100%;
+  height: 200px;
+  background-color: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+#clear-sig {
+  margin-top: 1rem;
+  background-color: #ef4444;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#submit-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  background: linear-gradient(90deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#submit-btn:hover {
+  background-color: #434190;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .logo {
+    margin-top: 1rem;
+  }
+}

@@ -1,0 +1,12 @@
+﻿.App {
+  text-align: center;
+}
+
+h1 {
+  color: #4CAF50;
+}
+
+input, button {
+  margin: 5px;
+  padding: 8px;
+}
