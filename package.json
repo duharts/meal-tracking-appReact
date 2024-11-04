@@ -1,40 +1,24 @@
 {
-  "name": "meal-tracking-app",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "",
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "aws-sdk": "^2.1691.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "meal-tracking-appreact",
+  "version": "1.0.0",
+  "main": "index.js",
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run start:client\" \"npm run start:server\" --kill-others --names \"CLIENT, SERVER\" -c \"blue, green\"",
+    "start:client": "cd client && npm start --workspace=client",
+    "start:server": "cd server && npm run dev --workspace=server",
+    "install:all": "npm install && cd client && npm install --workspace=client && cd .. && cd server && npm install --workspace=server",
+    "build": "npm run build --workspace=client"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "concurrently": "^9.0.1"
   }
 }

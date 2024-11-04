@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import AWS from 'aws-sdk';
+import axios from 'axios'
 
 function App() {
     const [counts, setCounts] = useState({ breakfast: 0, lunch: 0, dinner: 0 });
@@ -137,7 +138,7 @@ function App() {
 
     const submitOrder = async () => {
         if (!roomNumber || (counts.breakfast === 0 && counts.lunch === 0 && counts.dinner === 0)) {
-            alert(translations[language].fillFormAlert);
+            alert('Please enter all the details!');
             return;
         }
 
@@ -147,10 +148,23 @@ function App() {
             roomNumber,
             language,
             meals: counts,
-            signatureUrl: await uploadSignatureToS3(signatureDataUrl),
+            // signatureUrl: await uploadSignatureToS3(signatureDataUrl),
+            signS3url: 'testing url',
+            created_at: new Date().toISOString()
         };
 
-        alert(translations[language].orderSubmitted);
+        console.log(orderData)
+        const response = await axios.post('http://localhost:5000/api/submit-order', {
+            data: orderData
+        }).then((res) => {
+            console.log('Order submitted -> ', res)
+            alert(res.data.message);
+        }).catch((err) => {
+            console.log('Error Submitting order -> ', err)
+            // alert(err.data.error);
+        })
+
+
     };
 
     const uploadSignatureToS3 = async (signatureDataUrl) => {
