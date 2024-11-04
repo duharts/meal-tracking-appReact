@@ -61,7 +61,7 @@ const db = new sqlite3.Database('./local.db', (err) => {
 });
 
 // Schedule synchronization every hour
-setInterval(syncToDynamoDB, 60 * 1000);
+// setInterval(syncToDynamoDB, 60 * 1000);
 
 dotenv.config()
 
