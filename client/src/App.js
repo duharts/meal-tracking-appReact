@@ -149,7 +149,7 @@ function App() {
             language,
             meals: counts,
             // signatureUrl: await uploadSignatureToS3(signatureDataUrl),
-            signS3url: 'testing url',
+            // signS3url: 'testing url',
             created_at: new Date().toISOString()
         };
 
@@ -167,33 +167,33 @@ function App() {
 
     };
 
-    const uploadSignatureToS3 = async (signatureDataUrl) => {
-        const s3 = new AWS.S3({
-            accessKeyId: 'YOUR_ACCESS_KEY_ID',
-            secretAccessKey: 'YOUR_SECRET_ACCESS_KEY',
-            region: 'YOUR_AWS_REGION',
-        });
+    // const uploadSignatureToS3 = async (signatureDataUrl) => {
+    //     const s3 = new AWS.S3({
+    //         accessKeyId: 'YOUR_ACCESS_KEY_ID',
+    //         secretAccessKey: 'YOUR_SECRET_ACCESS_KEY',
+    //         region: 'YOUR_AWS_REGION',
+    //     });
 
-        const base64Data = signatureDataUrl.replace(/^data:image\/\w+;base64,/, '');
-        const buffer = new Buffer(base64Data, 'base64');
-        const fileName = `signatures/${Date.now()}.png`;
+    //     const base64Data = signatureDataUrl.replace(/^data:image\/\w+;base64,/, '');
+    //     const buffer = new Buffer(base64Data, 'base64');
+    //     const fileName = `signatures/${Date.now()}.png`;
 
-        const params = {
-            Bucket: 'your-s3-bucket-name',
-            Key: fileName,
-            Body: buffer,
-            ContentEncoding: 'base64',
-            ContentType: 'image/png',
-        };
+    //     const params = {
+    //         Bucket: 'mealtrackerbucket',
+    //         Key: fileName,
+    //         Body: buffer,
+    //         ContentEncoding: 'base64',
+    //         ContentType: 'image/png',
+    //     };
 
-        try {
-            const data = await s3.upload(params).promise();
-            return data.Location;
-        } catch (err) {
-            console.error('Error uploading signature:', err);
-            return '';
-        }
-    };
+    //     try {
+    //         const data = await s3.upload(params).promise();
+    //         return data.Location;
+    //     } catch (err) {
+    //         console.error('Error uploading signature:', err);
+    //         return '';
+    //     }
+    // };
 
     const changeLanguage = (e) => {
         setLanguage(e.target.value);
